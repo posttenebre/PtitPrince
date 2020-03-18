@@ -106,9 +106,9 @@ class _Half_ViolinPlotter(_CategoricalPlotter):
     def __init__(self, x, y, hue, data, order, hue_order,
                  bw, cut, scale, scale_hue, gridsize,
                  width, inner, split, dodge, orient, linewidth,
-                 color, palette, saturation, offset):
+                 color, palette, saturation, offset, legend_out):
 
-        self.establish_variables(x, y, hue, data, orient, order, hue_order)
+        self.establish_variables(x, y, hue, data, orient, order, hue_order, legend_out)
         self.establish_colors(color, palette, saturation)
         self.estimate_densities(bw, cut, scale, scale_hue, gridsize)
 
@@ -675,7 +675,7 @@ def half_violinplot(x=None, y=None, hue=None, data=None, order=None, hue_order=N
                bw="scott", cut=2, scale="area", scale_hue=True, gridsize=100,
                width=.8, inner="box", split=False, dodge=True, orient=None,
                linewidth=None, color=None, palette=None, saturation=.75,
-               ax=None, offset=.15, **kwargs):
+               ax=None, offset=.15, legend_out=False, **kwargs):
 
     plotter = _Half_ViolinPlotter(x, y, hue, data, order, hue_order,
                              bw, cut, scale, scale_hue, gridsize,
@@ -695,7 +695,8 @@ def RainCloud(x = None, y = None, hue = None, data = None,
               palette = "Set2", bw = .2, linewidth = 1, cut = 0.,
               scale = "area", jitter = 1, move = 0., offset = None,
               point_size = 3, ax = None, pointplot = False,
-              alpha = None, dodge = False, linecolor = 'red', **kwargs ):
+              alpha = None, dodge = False, linecolor = 'red',
+              legend_out = False, **kwargs ):
 
     '''Draw a Raincloud plot of measure `y` of different categories `x`. Here `x` and `y` different columns of the pandas dataframe `data`.
 
@@ -760,7 +761,7 @@ def RainCloud(x = None, y = None, hue = None, data = None,
                          order = order, hue_order = hue_order,
                          orient = orient, width = width_viol,
                          inner = None, palette = palette, bw = bw,  linewidth = linewidth,
-                         cut = cut, scale = scale, split = split, offset = offset, ax =ax, **kwcloud)
+                         cut = cut, scale = scale, split = split, offset = offset, ax = ax,legend_out = legend_out, **kwcloud)
 
     # Draw boxplot
     sns.boxplot   (x = x, y = y, hue = hue, data = data, orient = orient, width = width_box,
