@@ -680,7 +680,7 @@ def half_violinplot(x=None, y=None, hue=None, data=None, order=None, hue_order=N
     plotter = _Half_ViolinPlotter(x, y, hue, data, order, hue_order,
                              bw, cut, scale, scale_hue, gridsize,
                              width, inner, split, dodge, orient, linewidth,
-                             color, palette, saturation, offset)
+                             color, palette, saturation, offset, legend_out)
 
     if ax is None:
         ax = plt.gca()
